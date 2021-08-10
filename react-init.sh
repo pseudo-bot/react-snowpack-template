@@ -11,7 +11,7 @@ cd $dir
 npm i react react-dom
 
 # dev-dependencies
-npm install --save-dev @snowpack/plugin-postcss postcss autoprefixer @snowpack/plugin-sass
+npm install --save-dev @snowpack/plugin-postcss postcss autoprefixer @snowpack/plugin-sass cssnano postcss-preset-env
 
 
 # project structure
@@ -53,7 +53,7 @@ export default {
 		/* ... */
 	},
 	devOptions: {
-		/* ... */
+		hmrErrorOverlay: false,
 	},
 	buildOptions: {
 		/* ... */
@@ -85,7 +85,7 @@ echo "<!DOCTYPE html>
 	<meta charset=\"UTF-8\">
 	<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
 	<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-	<title>Document</title>
+	<title>$dir</title>
 	<script type=\"module\" src=\"/dist/index.js\"></script>
 </head>
 <body>
@@ -102,14 +102,14 @@ import App from './components/App.jsx';
 
 import '../public/css/style.scss';
 
-ReactDOM.render(<App />, document.querySelector('#root));" > src/index.jsx
+ReactDOM.render(<App />, document.querySelector('#root'));" > src/index.jsx
 
 # App.jsx
 
 echo "import React from 'react';
 import ReactDOM from 'react-dom';
 
-const App = () = {
+const App = () => {
     
 };
 
