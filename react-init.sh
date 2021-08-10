@@ -63,7 +63,7 @@ export default {
 
 # postcss config files
 
-touch "const cssnano = require('cssnano');
+echo "const cssnano = require('cssnano');
 const postcssPresetEnv = require('postcss-preset-env');
 
 module.exports = {
@@ -72,7 +72,7 @@ module.exports = {
 
 # .gitignore
 
-touch ".snowpack
+echo ".snowpack
 /build
 /node_modules" > .gitignore
 
