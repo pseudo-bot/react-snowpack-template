@@ -115,3 +115,15 @@ const App = () => {
 
 export default App;
 " > src/components/App.jsx
+
+# Commit starter files
+
+git add .
+git commit -m "starter-files"
+
+# End message
+
+echo
+echo
+echo cd into $dir and start coding react apps!
+echo Use npm start "for" starting up the development server.
