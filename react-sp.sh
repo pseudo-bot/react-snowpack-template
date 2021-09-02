@@ -8,11 +8,10 @@ npx create-snowpack-app $dir --template @snowpack/app-template-minimal
 cd $dir
 
 # dependencies
-npm i react react-dom
+npm i react react-dom react-router-dom
 
 # dev-dependencies
 npm install --save-dev @snowpack/plugin-postcss postcss autoprefixer @snowpack/plugin-sass cssnano postcss-preset-env
-
 
 # project structure
 rm index.js index.html index.css
@@ -21,7 +20,6 @@ mkdir src
 mkdir public
 
 mkdir public/css
-touch public/css/style.scss
 
 mkdir src/components
 mkdir src/assets
@@ -63,11 +61,16 @@ export default {
 
 # postcss config files
 
-echo "const cssnano = require('cssnano');
+echo "const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 const postcssPresetEnv = require('postcss-preset-env');
 
 module.exports = {
-  plugins: [cssnano(), postcssPresetEnv(), require('autoprefixer')],
+	plugins: [
+		cssnano(),
+		postcssPresetEnv(),
+		autoprefixer(),
+	],
 };" > postcss.config.js
 
 # .gitignore
@@ -76,8 +79,9 @@ echo ".snowpack
 /build
 /node_modules" > .gitignore
 
+## populating files
 
-# populating files
+# index.html
 
 echo "<!DOCTYPE html>
 <html lang=\"en\">
@@ -94,6 +98,19 @@ echo "<!DOCTYPE html>
 </html>" > public/index.html
 
 
+# style.css
+
+echo "html {
+	font-size: 10px;
+}
+
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}" > public/css/style.scss
+
+
 # index.jsx file
 
 echo "import React from 'react';
@@ -107,7 +124,6 @@ ReactDOM.render(<App />, document.querySelector('#root'));" > src/index.jsx
 # App.jsx
 
 echo "import React from 'react';
-import ReactDOM from 'react-dom';
 
 const App = () => {
     
@@ -123,7 +139,11 @@ git commit -m "starter-files"
 
 # End message
 
-echo
-echo
-echo cd into $dir and start coding react apps!
-echo Use npm start "for" starting up the development server.
+echo "
+
+
+cd into $dir and start coding your apps!
+
+Use npm start for starting up the development server.
+
+Happy Coding!!"
