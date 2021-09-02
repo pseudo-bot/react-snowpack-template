@@ -113,7 +113,7 @@ echo "import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App.jsx';
 
-import 'index.scss';
+import './index.scss';
 
 ReactDOM.render(<App />, document.querySelector('#root'));" > src/index.jsx
 
