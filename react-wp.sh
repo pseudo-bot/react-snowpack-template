@@ -129,3 +129,36 @@ const App = () => {
 
 export default App;
 " > src/components/App.jsx
+
+
+# updating package.json for npm scripts
+
+npm i -g json
+
+json -I -f package.json -e "this.scripts={
+  \"start\": \"webpack serve --mode=development\",
+  \"build\": \"webpack\"
+}"
+
+npm r -g json
+
+# git
+
+echo "/node_modules
+package-lock.json
+" > .gitignore
+
+git init
+git add .
+git commit -m "starter-files"
+
+# Happy coding!!
+
+echo "
+
+
+cd into $dir and run 'npm start' to start the dev server.
+
+
+Happy Coding!!
+"
